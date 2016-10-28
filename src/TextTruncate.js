@@ -69,7 +69,7 @@ export default class TextTruncate extends Component {
         // return if all of text can be displayed
         if (scopeWidth >= this.measureWidth(text)) {
             return (
-                <div {...props}>{text}</div>
+                <div {...props}>{text} {textTruncateChild} </div>
             );
         }
 
@@ -134,8 +134,11 @@ export default class TextTruncate extends Component {
 
         if (startPos === maxTextLength) {
             return (
-                text
-            );
+                <div>
+                    {text}
+                    {textTruncateChild}
+                </div>
+            )
         }
         return (
             <div {...props}>
