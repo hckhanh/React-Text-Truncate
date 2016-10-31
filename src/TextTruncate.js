@@ -6,7 +6,8 @@ export default class TextTruncate extends Component {
         line: React.PropTypes.number,
         text: React.PropTypes.string,
         textTruncateChild: React.PropTypes.node,
-        truncateText: React.PropTypes.string
+        truncateText: React.PropTypes.string,
+        hasOthersContent: React.PropTypes.boolean
     };
 
     static defaultProps = {
@@ -56,6 +57,7 @@ export default class TextTruncate extends Component {
             text,
             textTruncateChild,
             truncateText,
+            hasOthersContent,
             ...props
         } = this.props;
 
@@ -69,7 +71,7 @@ export default class TextTruncate extends Component {
         // return if all of text can be displayed
         if (scopeWidth >= this.measureWidth(text)) {
             return (
-                <div {...props}>{text} {textTruncateChild} </div>
+                <div {...props}>{text} {hasOthersContent ? textTruncateChild : null} </div>
             );
         }
 
@@ -136,7 +138,7 @@ export default class TextTruncate extends Component {
             return (
                 <div>
                     {text}
-                    {textTruncateChild}
+                    {hasOthersContent ? textTruncateChild : null}
                 </div>
             )
         }
