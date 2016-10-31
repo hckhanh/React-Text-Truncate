@@ -144,7 +144,7 @@ export default class TextTruncate extends Component {
         }
         return (
             <div {...props}>
-                {text.substr(0, startPos) + truncateText + ' '}
+                {text.substr(0, startPos - 8) + truncateText + ' '}
                 {textTruncateChild}
             </div>
         );
